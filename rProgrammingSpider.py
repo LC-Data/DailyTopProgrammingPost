@@ -13,8 +13,15 @@ class FirstSpider(scrapy.Spider):
     def parse(self, response):
 		items = topPostProgramming()
 		for sel in response.xpath('//*[@id="thing_t3_4i052a"]/div[2]/p[1]/a'):      ### GETTING THIS XPATH IS HARDER THAN IT LOOKS
-			items['postName'] = sel.xpath('text()').extract()                         ### assigning the extracted text to a "name" 
-			items['postLink'] = sel.xpath('@href').extract()                          ### and the url to a "link" as we defined them
-
+			items['postName'] = sel.xpath('text()').extract()                   ### assigning the extracted text to a "name" 
+			items['postLink'] = sel.xpath('@href').extract()                    ### and the url to a "link" as we defined them
+			###items['user'] = sel.xpath('xxx').extract()
+			###items['upvotes'] = sel.xpath('xxx').extract()
+			###items['commentSection'] = sel.xpath('xxx').extract()		    ### Will be adding a score, link to comment section
+											    ### and the submitting user, credit where it is due.
+			
+			
+			
+			
 		yield items  ### this is more just to make sure the spider is actually working and not hitting errors while traversing
 		             ### provides immediate visual output of what was scraped
