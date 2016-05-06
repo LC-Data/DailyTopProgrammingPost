@@ -10,3 +10,8 @@ Takes the top post from Reddit's /r/programming everyday, and exports the post's
 Unix-based systems can take advantage of cron to easily schedule the spider, and to export feed in to your file.
 
 Will add a pipeline for non-cron users that will at least autoexport to a file without running, or a more elegant solution if I can figure one out.
+
+
+To output from shell command while executing spider: 
+
+scrapy crawl rProgrammingSpider -o TopToday.json
