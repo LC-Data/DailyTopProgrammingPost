@@ -12,7 +12,7 @@ class FirstSpider(scrapy.Spider):
                                                                                 ### format for potentially better collection of posts
     def parse(self, response):
 		items = topPostProgramming()
-		for sel in response.xpath('//*[@id="thing_t3_4i052a"]/div[2]/p[1]/a'):      ### GETTING THIS XPATH IS HARDER THAN IT LOOKS
+		for sel in response.xpath('//*[@data-rank="1"]/div[2]/p[1]/a')              ### USE data-rank="1", Reddit's dynamic xpathing changes daily, but you always want the top ranking post!!!
 			items['postName'] = sel.xpath('text()').extract()                   ### assigning the extracted text to a "name" 
 			items['postLink'] = sel.xpath('@href').extract()                    ### and the url to a "link" as we defined them
 			###items['user'] = sel.xpath('xxx').extract()
